@@ -1,8 +1,11 @@
 import org.scalatest.FunSuite
-import play.api.libs.json._
+
+case class JsPath()
+
+case class TestException(value: Seq[JsPath]) extends Throwable
 
 class TestSpec extends FunSuite {
   test("1") {
-    JsObject(Seq.empty).as[JsArray]
+    throw new TestException(List(JsPath()))
   }
 }
