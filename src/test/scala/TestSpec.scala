@@ -6,6 +6,9 @@ case class TestException(value: Seq[JsPath]) extends Throwable
 
 class TestSpec extends FunSuite {
   test("1") {
-    throw new TestException(List(JsPath()))
+    throw TestException(List(JsPath()))
+  }
+  test("2") {
+    assert(true === true)
   }
 }
